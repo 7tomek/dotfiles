@@ -1,0 +1,53 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'nelstrom/vim-mac-classic-theme'
+Plugin 'majutsushi/tagbar'
+Plugin 'MochaLatte'
+Plugin 'Rip-Rip/clang_complete'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'sickill/vim-monokai'
+Plugin 'reedes/vim-colors-pencil'
+Plugin 'Shougo/neocomplcache.vim'
+
+call vundle#end()            " required
+
+filetype plugin indent on    " required
+
+set guifont=Monaco:h12
+set wildmenu
+set wildmode=longest:full,full 
+set number
+set autochdir
+
+if !exists('g:neocomplcache_force_omni_patterns')
+    let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_force_omni_patterns.c =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.cpp =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.objc =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.objcpp =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
+let g:clang_use_library = 1  
+let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+
+map <F2> :TagbarToggle<CR>
+map <C-e> :NERDTreeToggle<CR>
+
+colorscheme pencil
+set background=dark
+
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
