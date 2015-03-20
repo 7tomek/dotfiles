@@ -1,0 +1,1 @@
+defaults write xcodebuild IDEBuildOperationMaxNumberOfConcurrentCompileTasks 4 // Compile Threads
